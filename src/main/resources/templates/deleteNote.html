@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Note</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Delete Note</h1>
+
+<p>Are you sure you want to delete this note?</p>
+
+<form th:action="@{/deleteNote/{id}(id=${note.id})}" method="post">
+    <input type="hidden" name="id" th:value="${note.id}"/>
+    <p>
+        <input type="submit" value="Yes" class="btn btn-danger"/>
+    </p>
+</form>
+
+<p><button onclick="location.href='/'" class="btn btn-primary">No</button></p>
+</body>
+</html>

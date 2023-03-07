@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Note</title>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>Edit Note</h1>
+
+<form th:action="@{/editNote/{id}(id=${note.id})}" th:object="${note}" method="post">
+  <input type="hidden" th:field="*{id}"/>
+  <p>
+    <label for="title">Title:</label>
+    <input type="text" th:field="*{title}" required/>
+  </p>
+  <p>
+    <label for="content">Content:</label>
+    <textarea th:field="*{content}" required></textarea>
+  </p>
+  <p>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+  </p>
+</form>
+
+<p><button onclick="location.href='/'" class="btn btn-danger">No</button></p>
+</body>
+</html>
